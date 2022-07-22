@@ -132,4 +132,26 @@ public class LinkedList {
         result.append(']');
         return result.toString();
     }
+
+    public void reverse() {
+        if (isEmpty()) {
+            return;
+        }
+        // 15       -> 25      -> 35
+        // previous -> current -> next
+        Node previous = first;
+        Node current = first.next;
+
+        // 15       <- 25      <- 35
+        while (current != null) {
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        // swap the first and the last
+        last = first;
+        last.next = null;
+        first = previous;
+    }
 }

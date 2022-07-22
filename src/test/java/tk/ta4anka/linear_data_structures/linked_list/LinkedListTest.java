@@ -66,4 +66,14 @@ class LinkedListTest {
         list.addLast(25);
         assertEquals("[15, 25]", list.toString());
     }
+    @Test
+    void reverse() {
+        list.addLast(15);
+        list.addLast(25);
+        list.addLast(35);
+        list.reverse();
+
+        assertEquals(2, list.indexOf(15));
+        assertEquals("[35, 25, 15]",list.toString());
+    }
 }
