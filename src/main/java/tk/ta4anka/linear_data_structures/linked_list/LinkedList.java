@@ -154,4 +154,25 @@ public class LinkedList {
         last.next = null;
         first = previous;
     }
+
+    //Find K-th Node from the end of a linked List in one pass(By using two pointers):
+    public Object getKthNodeFromTheEnd(int k) {
+        if (isEmpty()) {
+            throw new IllegalStateException();
+        }
+        Node firstPointer = first;
+        Node secondPointer = first;
+        for (int i = 0; i < k - 1; i++) {
+            secondPointer = secondPointer.next;
+            if (secondPointer == null) {
+                throw new IllegalArgumentException(
+                        String.format("%d is greater than size of the list!", k));
+            }
+        }
+        while (secondPointer != last) {
+            firstPointer = firstPointer.next;
+            secondPointer = secondPointer.next;
+        }
+        return firstPointer.value;
+    }
 }

@@ -66,6 +66,7 @@ class LinkedListTest {
         list.addLast(25);
         assertEquals("[15, 25]", list.toString());
     }
+
     @Test
     void reverse() {
         list.addLast(15);
@@ -74,6 +75,28 @@ class LinkedListTest {
         list.reverse();
 
         assertEquals(2, list.indexOf(15));
-        assertEquals("[35, 25, 15]",list.toString());
+        assertEquals("[35, 25, 15]", list.toString());
+    }
+
+    @Test
+    void getKthNodeFromTheEnd() {
+        list.addLast(15);
+        list.addLast(25);
+        list.addLast(35);
+        list.addLast(45);
+        assertEquals(25, list.getKthNodeFromTheEnd(3));
+    }
+
+    @Test
+    void getKthNodeFromTheEndIfNodeGreaterThanListSize() {
+        list.addLast(15);
+        list.addLast(25);
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> list.getKthNodeFromTheEnd(3));
+        assertEquals("3 is greater than size of the list!", exception.getMessage());
+    }
+
+    @Test
+    void getKthNodeFromTheEndIfListIsEmpty() {
+        assertThrows(IllegalStateException.class, () -> list.getKthNodeFromTheEnd(2));
     }
 }
