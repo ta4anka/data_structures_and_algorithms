@@ -29,7 +29,7 @@ public class ArrayQueue {
 
     public Object dequeue() {
         Object item = items[front];
-        items[front] = 0;
+        items[front] = null;
         front = (front + 1) % items.length;
         count--;
         return item;

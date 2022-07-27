@@ -20,7 +20,7 @@ class ArrayQueueTest {
         arrayQueue.enqueue(2);
         arrayQueue.enqueue(3);
         assertEquals(1, arrayQueue.dequeue());
-        assertEquals("[0, 2, 3]", arrayQueue.toString());
+        assertEquals("[null, 2, 3]", arrayQueue.toString());
     }
 
     @Test
@@ -29,7 +29,7 @@ class ArrayQueueTest {
         arrayQueue.enqueue(20);
         arrayQueue.enqueue(30);
         arrayQueue.dequeue();
-        assertEquals("[0, 20, 30]", arrayQueue.toString());
+        assertEquals("[null, 20, 30]", arrayQueue.toString());
     }
 
     @Test
