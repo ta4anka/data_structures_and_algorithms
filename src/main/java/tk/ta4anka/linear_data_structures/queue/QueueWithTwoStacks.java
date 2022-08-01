@@ -2,6 +2,10 @@ package tk.ta4anka.linear_data_structures.queue;
 
 import java.util.*;
 
+/**
+ * Queue implementation using Two stacks
+ */
+
 public class QueueWithTwoStacks<E> {
     private Stack<E> stack1 = new Stack<E>();
     private Stack<E> stack2 = new Stack<E>();
